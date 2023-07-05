@@ -10,13 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Source"
+config/name="GMTK2023"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GGS="*res://addons/ggs/classes/ggs_globals.gd"
+Globals="*res://globals.gd"
 
 [editor_plugins]
 
