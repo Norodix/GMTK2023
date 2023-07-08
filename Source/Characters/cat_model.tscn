@@ -1,0 +1,101 @@
+[gd_scene load_steps=19 format=3 uid="uid://clki1frcw8ft8"]
+
+[ext_resource type="PackedScene" uid="uid://ef6nvo3uxv8b" path="res://Characters/Cat.gltf" id="1_mo8cx"]
+[ext_resource type="Texture2D" uid="uid://blafe8o4agoht" path="res://Characters/Cat_Eye.png" id="2_urwlr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vx3b3"]
+albedo_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwmhb"]
+albedo_texture = ExtResource("2_urwlr")
+emission_enabled = true
+emission_energy_multiplier = 0.5
+emission_texture = ExtResource("2_urwlr")
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_57b70"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_25rl4"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_wofy3"]
+graph_offset = Vector2(-569, 2)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_57b70")
+nodes/Animation/position = Vector2(-160, 140)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_25rl4")
+nodes/TimeScale/position = Vector2(107, 177)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3jwy8"]
+animation = &"Movement"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_wkwoh"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_2bq01"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_3jwy8")
+nodes/Animation/position = Vector2(517, 146)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_wkwoh")
+nodes/TimeScale/position = Vector2(735, 186)
+nodes/output/position = Vector2(940, 160)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bjueq"]
+animation = &"Use"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vkkxb"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xjpg4"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_anmdr"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mlqta"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u6o32"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6igcr"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_r8pqo"]
+states/Idle/node = SubResource("AnimationNodeBlendTree_wofy3")
+states/Idle/position = Vector2(371, 97)
+states/Movement/node = SubResource("AnimationNodeBlendTree_2bq01")
+states/Movement/position = Vector2(635, 91)
+states/Start/position = Vector2(170, 100)
+states/Use/node = SubResource("AnimationNodeAnimation_bjueq")
+states/Use/position = Vector2(494, 7)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_vkkxb"), "Idle", "Movement", SubResource("AnimationNodeStateMachineTransition_xjpg4"), "Movement", "Use", SubResource("AnimationNodeStateMachineTransition_anmdr"), "Idle", "Use", SubResource("AnimationNodeStateMachineTransition_mlqta"), "Use", "Idle", SubResource("AnimationNodeStateMachineTransition_u6o32"), "Movement", "Idle", SubResource("AnimationNodeStateMachineTransition_6igcr")]
+graph_offset = Vector2(-220, -103)
+
+[node name="Cat" instance=ExtResource("1_mo8cx")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/1/position = Vector3(0.00543376, -0.738932, -2.96169)
+bones/1/rotation = Quaternion(0.0293528, -2.50236e-07, -1.17805e-08, 0.999569)
+bones/2/rotation = Quaternion(-0.198519, -3.11531e-08, 1.35682e-07, 0.980097)
+bones/3/rotation = Quaternion(-0.135662, 0.048263, -0.0931996, 0.98518)
+bones/4/rotation = Quaternion(0.858985, -0.000474939, 0.000531126, 0.512001)
+bones/5/rotation = Quaternion(-0.121587, 0.000158923, 0.000402224, 0.992581)
+bones/6/rotation = Quaternion(-0.465896, 6.62511e-05, 0.000142914, 0.884839)
+bones/7/rotation = Quaternion(0.858985, -0.000474943, 0.000531131, 0.512001)
+bones/8/rotation = Quaternion(-0.121587, 0.000158924, 0.000402227, 0.992581)
+bones/9/rotation = Quaternion(-0.465896, 6.62516e-05, 0.000142916, 0.884839)
+bones/10/rotation = Quaternion(0.98957, 4.69393e-08, -3.22443e-07, 0.144055)
+bones/12/rotation = Quaternion(0.224178, 2.8546e-20, -4.97816e-17, 0.974548)
+bones/13/rotation = Quaternion(-0.470811, 0.000671339, 0.000581237, 0.882234)
+bones/14/rotation = Quaternion(-0.378776, 0.000213744, 0.000300564, 0.925488)
+bones/15/rotation = Quaternion(-0.372749, 5.15228e-05, 0.000137456, 0.927932)
+bones/16/rotation = Quaternion(-0.470811, 0.000671339, 0.000581237, 0.882234)
+bones/17/rotation = Quaternion(-0.378776, 0.000213744, 0.000300564, 0.925488)
+bones/18/rotation = Quaternion(-0.372749, 5.15228e-05, 0.000137456, 0.927932)
+
+[node name="Cube" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vx3b3")
+surface_material_override/1 = SubResource("StandardMaterial3D_gwmhb")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeStateMachine_r8pqo")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/Idle/TimeScale/scale = 0.5
+parameters/Movement/TimeScale/scale = 2.0
