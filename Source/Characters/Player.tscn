@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0e3lcx5x86i1"]
+
+[ext_resource type="Script" path="res://Characters/Player.gd" id="1_xmrw6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b0wil"]
+radius = 0.25
+height = 1.8
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_34wo7"]
+radius = 2.0
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+script = ExtResource("1_xmrw6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_b0wil")
+
+[node name="pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[node name="rod" type="Node3D" parent="pivot"]
+
+[node name="Camera3D" type="Camera3D" parent="pivot/rod"]
+
+[node name="CatDetector" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CatDetector"]
+shape = SubResource("SphereShape3D_34wo7")
+
+[node name="ShoutCooldown" type="Timer" parent="."]
+one_shot = true

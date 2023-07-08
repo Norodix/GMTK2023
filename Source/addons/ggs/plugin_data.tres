@@ -1,6 +1,5 @@
-[gd_resource type="Resource" script_class="ggsPluginData" load_steps=37 format=3 uid="uid://dpk53al471l8m"]
+[gd_resource type="Resource" script_class="ggsPluginData" load_steps=26 format=3 uid="uid://dpk53al471l8m"]
 
-[ext_resource type="Script" path="res://addons/ggs/classes/resources/ggs_category.gd" id="1_e65b2"]
 [ext_resource type="Script" path="res://addons/ggs/classes/resources/ggs_plugin_data.gd" id="1_wabe0"]
 [ext_resource type="Texture2D" uid="uid://dbtn4d6130bdj" path="res://addons/ggs/assets/game_settings/audio_mute.svg" id="3_eqgoo"]
 [ext_resource type="Script" path="res://UI/game_settings/settings/audio_mute.gd" id="4_kdv8s"]
@@ -17,131 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://c4vunn2rkqj83" path="res://addons/ggs/assets/game_settings/input_setting.svg" id="13_kk4xg"]
 [ext_resource type="Script" path="res://UI/game_settings/settings/input.gd" id="14_71qew"]
 [ext_resource type="Script" path="res://UI/game_settings/settings/display_vsync.gd" id="15_4ylby"]
-
-[sub_resource type="Resource" id="Resource_nqp6h"]
-resource_name = "Audio Mute"
-script = ExtResource("4_kdv8s")
-bus_name = "[NONE]"
-current = false
-default = false
-name = "Audio Mute"
-category = "Audio"
-icon = ExtResource("3_eqgoo")
-desc = "Toggle mute state of a specific audio bus."
-value_type = 1
-value_hint = 0
-value_hint_string = ""
-
-[sub_resource type="Resource" id="Resource_rmmjf"]
-resource_name = "Master Volume"
-script = ExtResource("6_hby4o")
-bus_name = "Master"
-current = 80.0
-default = 80.0
-name = "Master Volume"
-category = "Audio"
-icon = ExtResource("5_iytbk")
-desc = "Change volume of a specific audio bus."
-value_type = 3
-value_hint = 1
-value_hint_string = "0,100"
-
-[sub_resource type="Resource" id="Resource_lspgb"]
-resource_name = "Audio"
-script = ExtResource("1_e65b2")
-name = "Audio"
-settings = {
-"Audio Mute": SubResource("Resource_nqp6h"),
-"Master Volume": SubResource("Resource_rmmjf")
-}
-item_order = Array[Resource("res://addons/ggs/classes/resources/ggs_setting.gd")]([SubResource("Resource_nqp6h"), SubResource("Resource_rmmjf")])
-
-[sub_resource type="Resource" id="Resource_jk7qj"]
-resource_name = "Fullscreen Mode"
-script = ExtResource("8_hxr0w")
-size_setting = "[NONE]"
-current = false
-default = false
-name = "Fullscreen Mode"
-category = "Graphics"
-icon = ExtResource("7_xj0pp")
-desc = "Toggle Fullscreen mode."
-value_type = 1
-value_hint = 0
-value_hint_string = ""
-
-[sub_resource type="Resource" id="Resource_6xdmp"]
-resource_name = "Window Size"
-script = ExtResource("12_n0yw8")
-sizes = Array[Vector2]([])
-current = null
-default = null
-name = "Window Size"
-category = "Graphics"
-icon = ExtResource("11_8ev3b")
-desc = "Change window size by setting its width and height to specific values."
-value_type = 2
-value_hint = 2
-value_hint_string = ""
-
-[sub_resource type="Resource" id="Resource_qxuey"]
-resource_name = "Vsync enabled"
-script = ExtResource("15_4ylby")
-current = true
-default = true
-name = "Vsync enabled"
-category = "Graphics"
-icon = ExtResource("7_xj0pp")
-desc = "Toggle Vsync."
-value_type = 1
-value_hint = 0
-value_hint_string = ""
-
-[sub_resource type="Resource" id="Resource_vp1gv"]
-resource_name = "FXAA"
-script = ExtResource("9_kq8ij")
-current = true
-default = true
-name = "FXAA"
-category = "Graphics"
-icon = ExtResource("7_xj0pp")
-desc = "Toggle fast approximate antialiasing"
-value_type = 1
-value_hint = 0
-value_hint_string = ""
-
-[sub_resource type="Resource" id="Resource_10ovf"]
-resource_name = "MSAA"
-script = ExtResource("11_kebyc")
-current = 0
-default = 0
-name = "MSAA"
-category = "Graphics"
-icon = ExtResource("11_8ev3b")
-desc = "Apply different levels of Multisample Anti-aliasing"
-value_type = 2
-value_hint = 2
-value_hint_string = "0,1,2,3"
-
-[sub_resource type="Resource" id="Resource_5y5hu"]
-resource_name = "Graphics"
-script = ExtResource("1_e65b2")
-name = "Graphics"
-settings = {
-"FXAA": SubResource("Resource_vp1gv"),
-"Fullscreen Mode": SubResource("Resource_jk7qj"),
-"MSAA": SubResource("Resource_10ovf"),
-"Vsync enabled": SubResource("Resource_qxuey"),
-"Window Size": SubResource("Resource_6xdmp")
-}
-item_order = Array[Resource("res://addons/ggs/classes/resources/ggs_setting.gd")]([SubResource("Resource_jk7qj"), SubResource("Resource_6xdmp"), SubResource("Resource_qxuey"), SubResource("Resource_vp1gv"), SubResource("Resource_10ovf")])
-
-[sub_resource type="Resource" id="Resource_ols6i"]
-resource_name = "Input"
-script = ExtResource("1_e65b2")
-name = "Input"
-settings = {}
-item_order = Array[Resource("res://addons/ggs/classes/resources/ggs_setting.gd")]([])
 
 [sub_resource type="Resource" id="Resource_wjfa3"]
 resource_name = "Window Size"
@@ -266,12 +140,8 @@ value_hint_string = ""
 
 [resource]
 script = ExtResource("1_wabe0")
-categories = {
-"Audio": SubResource("Resource_lspgb"),
-"Graphics": SubResource("Resource_5y5hu"),
-"Input": SubResource("Resource_ols6i")
-}
-category_order = Array[ExtResource("1_e65b2")]([SubResource("Resource_lspgb"), SubResource("Resource_5y5hu"), SubResource("Resource_ols6i")])
+categories = {}
+category_order = Array[Resource("res://addons/ggs/classes/resources/ggs_category.gd")]([])
 recent_settings = Array[Resource("res://addons/ggs/classes/resources/ggs_setting.gd")]([SubResource("Resource_wjfa3"), SubResource("Resource_vx2pa"), SubResource("Resource_e1pmo"), SubResource("Resource_ku437"), SubResource("Resource_4dtkw")])
 setting_list_cache = Array[Resource("res://addons/ggs/classes/resources/ggs_setting.gd")]([SubResource("Resource_b6kp6"), SubResource("Resource_mvg4p"), SubResource("Resource_vx2pa"), SubResource("Resource_ku437"), SubResource("Resource_e1pmo"), SubResource("Resource_p0yk5"), SubResource("Resource_wjfa3"), SubResource("Resource_4dtkw"), SubResource("Resource_4l0ja")])
 dir_settings = "res://UI/game_settings/settings"
