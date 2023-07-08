@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://boa5yby7hmgkn"]
+
+[ext_resource type="PackedScene" path="res://Assets/Fridge.tscn" id="1_w6d26"]
+[ext_resource type="PackedScene" uid="uid://8n1y45s56atv" path="res://Environment/Interactible.tscn" id="2_rfuki"]
+
+[sub_resource type="GDScript" id="GDScript_tssws"]
+script/source = "extends Node3D
+
+
+@onready var animplayer = $Fridge/AnimationPlayer
+var open = false
+
+func _on_node_3d_activate():
+	if not open:
+		animplayer.play(\"Open\")
+		open = true
+"
+
+[node name="Fridge" type="Node3D"]
+script = SubResource("GDScript_tssws")
+
+[node name="Fridge" parent="." instance=ExtResource("1_w6d26")]
+
+[node name="Interactible" parent="." instance=ExtResource("2_rfuki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.327502, 0.385339)
+
+[connection signal="activate" from="Interactible" to="." method="_on_node_3d_activate"]

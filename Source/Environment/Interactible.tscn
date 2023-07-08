@@ -5,7 +5,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_6bvkc"]
 radius = 0.1
 
-[node name="Node3D" type="Area3D"]
+[node name="Interactible" type="Area3D"]
 collision_layer = 8
 collision_mask = 0
 monitoring = false
