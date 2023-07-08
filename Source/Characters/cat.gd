@@ -52,13 +52,13 @@ func _physics_process(delta):
 		if seek_work:
 			seek_work = false
 			working = true
-			# start work animation
-			anim_state_machine.travel("Use")
-			await get_tree().create_timer(anim_player.get_animation("Use").length).timeout
+			# start work animations
 			var bodies : Array[Area3D] = $Interactor.get_overlapping_areas()
 			print("bodies: ", bodies)
 			if not bodies.is_empty():
 				if bodies[0].has_method("interact"):
+					anim_state_machine.travel("Use")
+					await get_tree().create_timer(anim_player.get_animation("Use").length).timeout
 					bodies[0].interact()
 					task_counter += 1
 				
