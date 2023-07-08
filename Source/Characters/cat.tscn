@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dafhoe35ivtic"]
+[gd_scene load_steps=6 format=3 uid="uid://dafhoe35ivtic"]
 
 [ext_resource type="Script" path="res://Characters/cat.gd" id="1_gqcmh"]
+[ext_resource type="PackedScene" uid="uid://cu167thwavfnq" path="res://Characters/cat_model.tscn" id="2_scl0b"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cc5sy"]
 radius = 0.25
@@ -21,6 +22,7 @@ script = ExtResource("1_gqcmh")
 shape = SubResource("SphereShape3D_cc5sy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("SphereMesh_pikhj")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
@@ -33,3 +35,6 @@ collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactor"]
 shape = SubResource("SphereShape3D_rd7ib")
+
+[node name="Cat" parent="." instance=ExtResource("2_scl0b")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.25, 0)

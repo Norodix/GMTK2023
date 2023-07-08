@@ -314,6 +314,7 @@ size = Vector2(10.925, 9.475)
 [node name="Player" parent="." instance=ExtResource("2_vks8u")]
 
 [node name="Cat" parent="." node_paths=PackedStringArray("tasks") instance=ExtResource("1_dmq2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6882, 3.87224)
 tasks = [NodePath("../NavigationRegion3D/TV_plus_stand")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
