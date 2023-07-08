@@ -10,6 +10,7 @@ var attention_counter = 0
 var working = false
 
 @export var tasks : Array[Node3D]
+var task_counter = 0
 
 func _ready():
 	# Make sure to not await during _ready.
@@ -33,7 +34,7 @@ func grab_attention():
 	
 	if attention_counter >= 1:
 		attention_counter = 0
-		activate_task(randi() % tasks.size())
+		activate_task(task_counter)
 
 
 func set_movement_target(movement_target: Vector3):
@@ -50,6 +51,7 @@ func _physics_process(delta):
 			if not bodies.is_empty():
 				if bodies[0].has_method("interact"):
 					bodies[0].interact()
+					task_counter += 1
 				
 			# on animation finished set working to false
 			working = false
@@ -66,6 +68,7 @@ func _physics_process(delta):
 	new_velocity = new_velocity * movement_speed
 
 	velocity = lerp(velocity, new_velocity, 0.1)
+	velocity.y -= 10 * delta
 	move_and_slide()
 
 

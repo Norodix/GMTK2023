@@ -37,6 +37,7 @@ func _physics_process(delta):
 	var speed = sprint_speed if Input.is_action_pressed("Sprint") else movement_speed
 	new_velocity = new_velocity.normalized() * speed
 	velocity = lerp(velocity, new_velocity, 0.1)
+	velocity.y -= 10 * delta
 	move_and_slide()
 
 
