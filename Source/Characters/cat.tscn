@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dafhoe35ivtic"]
+[gd_scene load_steps=5 format=3 uid="uid://dafhoe35ivtic"]
 
 [ext_resource type="Script" path="res://Characters/cat.gd" id="1_gqcmh"]
 
@@ -8,6 +8,9 @@ radius = 0.25
 [sub_resource type="SphereMesh" id="SphereMesh_pikhj"]
 radius = 0.25
 height = 0.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rd7ib"]
+radius = 1.0
 
 [node name="Cat" type="CharacterBody3D"]
 collision_layer = 4
@@ -23,3 +26,10 @@ mesh = SubResource("SphereMesh_pikhj")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.1
 debug_enabled = true
+
+[node name="Interactor" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactor"]
+shape = SubResource("SphereShape3D_rd7ib")

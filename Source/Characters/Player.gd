@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export var movement_speed = 1
 @export var sprint_speed = 2
-@onready var cam : Camera3D = %Camera3D
+@onready var cam : Camera3D = $pivot/rod/Camera3D
 @onready var camera_pivot : Node3D = $pivot
 @onready var camera_rod : Node3D = $pivot/rod
 
