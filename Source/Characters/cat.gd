@@ -9,6 +9,8 @@ var attention_counter = 0
 @onready var shout_detection_marker = preload("res://Characters/shout_detection_marker.tscn")
 var seek_work = false
 var working = false
+var current_target_time = 0
+const target_timeout = 10
 
 @export var tasks : Array[Node3D]
 var task_counter = 0
@@ -41,14 +43,19 @@ func grab_attention():
 		activate_task(task_counter)
 
 
+func set_random_target():
+	set_movement_target(Vector3(randf_range(-5, 5), 0, randf_range(-5, 5)))
+
+
 func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
-	print(navigation_agent.is_target_reachable())
+#	print(navigation_agent.is_target_reachable())
 
 
 func _physics_process(delta):
 	if navigation_agent.is_navigation_finished():
 		# Arrived at destination
+		current_target_time = 0
 		if seek_work:
 			seek_work = false
 			working = true
@@ -68,9 +75,15 @@ func _physics_process(delta):
 		elif working:
 			pass
 		else:
-			set_movement_target(Vector3(randf_range(-5, 5), 0, randf_range(-5, 5)))
+			set_random_target()
 		return
-
+	
+	# not at target yet
+	current_target_time += delta
+	if current_target_time > target_timeout:
+		print("navigation timeout")
+		current_target_time = 0
+		set_random_target()
 	var current_agent_position: Vector3 = global_position
 	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
 
