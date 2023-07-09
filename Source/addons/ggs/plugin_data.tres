@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ggsPluginData" load_steps=41 format=3 uid="uid://dpk53al471l8m"]
+[gd_resource type="Resource" script_class="ggsPluginData" load_steps=43 format=3 uid="uid://dpk53al471l8m"]
 
 [ext_resource type="Script" path="res://addons/ggs/classes/resources/ggs_category.gd" id="1_b3pfa"]
 [ext_resource type="Script" path="res://addons/ggs/classes/resources/ggs_plugin_data.gd" id="1_wabe0"]
@@ -72,12 +72,42 @@ settings = {
 }
 item_order = Array[Resource("res://addons/ggs/classes/resources/ggs_setting.gd")]([SubResource("Resource_2efvf"), SubResource("Resource_etvfe"), SubResource("Resource_vu8ol")])
 
+[sub_resource type="Resource" id="Resource_kqf5b"]
+resource_name = "FontSize"
+script = ExtResource("16_jnrd5")
+current = 24
+default = 24
+name = "FontSize"
+category = "Visual"
+icon = ExtResource("11_8ev3b")
+desc = "Change in-game font size"
+value_type = 2
+value_hint = 0
+value_hint_string = ""
+
+[sub_resource type="Resource" id="Resource_81m45"]
+resource_name = "Fullscreen Mode"
+script = ExtResource("8_hxr0w")
+size_setting = "[NONE]"
+current = false
+default = false
+name = "Fullscreen Mode"
+category = "Visual"
+icon = ExtResource("7_xj0pp")
+desc = "Toggle Fullscreen mode."
+value_type = 1
+value_hint = 0
+value_hint_string = ""
+
 [sub_resource type="Resource" id="Resource_giyux"]
 resource_name = "Visual"
 script = ExtResource("1_b3pfa")
 name = "Visual"
-settings = {}
-item_order = Array[Resource("res://addons/ggs/classes/resources/ggs_setting.gd")]([])
+settings = {
+"FontSize": SubResource("Resource_kqf5b"),
+"Fullscreen Mode": SubResource("Resource_81m45")
+}
+item_order = Array[Resource("res://addons/ggs/classes/resources/ggs_setting.gd")]([SubResource("Resource_kqf5b"), SubResource("Resource_81m45")])
 
 [sub_resource type="Resource" id="Resource_uljts"]
 resource_name = "Fullscreen Mode"
@@ -89,6 +119,19 @@ category = ""
 icon = ExtResource("7_xj0pp")
 desc = "Toggle Fullscreen mode."
 value_type = 1
+value_hint = 0
+value_hint_string = ""
+
+[sub_resource type="Resource" id="Resource_0ne55"]
+resource_name = "FontSize"
+script = ExtResource("16_jnrd5")
+current = 24
+default = 24
+name = "FontSize"
+category = ""
+icon = ExtResource("11_8ev3b")
+desc = "Change in-game font size"
+value_type = 2
 value_hint = 0
 value_hint_string = ""
 
@@ -277,19 +320,6 @@ value_type = 1
 value_hint = 0
 value_hint_string = ""
 
-[sub_resource type="Resource" id="Resource_0ne55"]
-resource_name = "FontSize"
-script = ExtResource("16_jnrd5")
-current = 24
-default = 24
-name = "FontSize"
-category = ""
-icon = ExtResource("11_8ev3b")
-desc = "Change in-game font size"
-value_type = 2
-value_hint = 0
-value_hint_string = ""
-
 [sub_resource type="Resource" id="Resource_sxiwm"]
 resource_name = "Input Binding"
 script = ExtResource("14_71qew")
@@ -312,7 +342,7 @@ categories = {
 "Visual": SubResource("Resource_giyux")
 }
 category_order = Array[ExtResource("1_b3pfa")]([SubResource("Resource_ci013"), SubResource("Resource_giyux")])
-recent_settings = Array[Resource("res://addons/ggs/classes/resources/ggs_setting.gd")]([SubResource("Resource_uljts"), SubResource("Resource_08gdy"), SubResource("Resource_mvg4p"), SubResource("Resource_wjfa3"), SubResource("Resource_vx2pa"), SubResource("Resource_e1pmo"), SubResource("Resource_ku437"), SubResource("Resource_4dtkw")])
+recent_settings = Array[Resource("res://addons/ggs/classes/resources/ggs_setting.gd")]([SubResource("Resource_uljts"), SubResource("Resource_0ne55"), SubResource("Resource_08gdy"), SubResource("Resource_mvg4p"), SubResource("Resource_wjfa3"), SubResource("Resource_vx2pa"), SubResource("Resource_e1pmo"), SubResource("Resource_ku437"), SubResource("Resource_4dtkw")])
 setting_list_cache = Array[Resource("res://addons/ggs/classes/resources/ggs_setting.gd")]([SubResource("Resource_le1ut"), SubResource("Resource_uallc"), SubResource("Resource_uljts"), SubResource("Resource_og7xb"), SubResource("Resource_ly6oo"), SubResource("Resource_5pnvl"), SubResource("Resource_vjxnd"), SubResource("Resource_m2dg0"), SubResource("Resource_0ne55"), SubResource("Resource_sxiwm")])
 dir_settings = "res://UI/game_settings/settings"
 dir_components = "res://UI/game_settings/components"
