@@ -1,7 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dafhoe35ivtic"]
+[gd_scene load_steps=14 format=3 uid="uid://dafhoe35ivtic"]
 
 [ext_resource type="Script" path="res://Characters/cat.gd" id="1_gqcmh"]
 [ext_resource type="PackedScene" uid="uid://cu167thwavfnq" path="res://Characters/cat_model.tscn" id="2_scl0b"]
+[ext_resource type="AudioStream" uid="uid://efdxhbpqseku" path="res://Assets/Sound/SFX/meow1.wav" id="3_tg0xv"]
+[ext_resource type="AudioStream" uid="uid://blik0lg5ftj6f" path="res://Assets/Sound/SFX/meow2.wav" id="4_k1swi"]
+[ext_resource type="AudioStream" uid="uid://7wwfo2auageg" path="res://Assets/Sound/SFX/meow3.wav" id="5_fa7a6"]
+[ext_resource type="AudioStream" uid="uid://0ubpaidw1jrb" path="res://Assets/Sound/SFX/meow4.wav" id="6_q888o"]
+[ext_resource type="AudioStream" uid="uid://dl6uyhgbkkfyy" path="res://Assets/Sound/SFX/meow5.wav" id="7_p4jtn"]
+[ext_resource type="AudioStream" uid="uid://cl55ntf7o2rwx" path="res://Assets/Sound/SFX/meow6.wav" id="8_10ecs"]
+[ext_resource type="AudioStream" uid="uid://ceb2rji764owj" path="res://Assets/Sound/SFX/meow7.wav" id="9_sll07"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cc5sy"]
 radius = 0.25
@@ -11,6 +18,23 @@ radius = 0.25
 height = 0.5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_rd7ib"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_illbb"]
+streams_count = 7
+stream_0/stream = ExtResource("3_tg0xv")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_k1swi")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_fa7a6")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_q888o")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("7_p4jtn")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("8_10ecs")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("9_sll07")
+stream_6/weight = 1.0
 
 [node name="Cat" type="CharacterBody3D"]
 collision_layer = 4
@@ -37,3 +61,10 @@ shape = SubResource("SphereShape3D_rd7ib")
 
 [node name="Cat" parent="." instance=ExtResource("2_scl0b")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.25, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_illbb")
+volume_db = -20.0
+max_db = -10.0
+panning_strength = 1.6
+bus = &"SFX"

@@ -18,6 +18,8 @@ var task_counter = 0
 @onready var anim_player : AnimationPlayer = $Cat/AnimationPlayer
 @onready var avatar : Node3D = $Cat
 
+var meowcooldown = 3
+
 func _ready():
 	# Make sure to not await during _ready.
 	call_deferred("actor_setup")
@@ -50,6 +52,13 @@ func set_random_target():
 func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
 #	print(navigation_agent.is_target_reachable())
+
+
+func _process(delta):
+	meowcooldown -= delta
+	if meowcooldown < 0:
+		$AudioStreamPlayer3D.play()
+		meowcooldown = randf_range(1.5, 5)
 
 
 func _physics_process(delta):
