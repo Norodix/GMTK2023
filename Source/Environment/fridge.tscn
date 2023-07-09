@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://boa5yby7hmgkn"]
 
-[ext_resource type="PackedScene" uid="uid://dao8djqovewjb" path="res://Assets/Fridge.tscn" id="1_w6d26"]
+[ext_resource type="PackedScene" uid="uid://3g6dxkdk6tbv" path="res://Assets/Fridge.tscn" id="1_w6d26"]
 [ext_resource type="PackedScene" uid="uid://8n1y45s56atv" path="res://Environment/Interactible.tscn" id="2_rfuki"]
 
 [sub_resource type="GDScript" id="GDScript_tssws"]
@@ -12,6 +12,7 @@ var open = false
 
 func _on_node_3d_activate():
 	if not open:
+		SignalBus.emit_signal(\"task_done\", \"Fridge\")
 		animplayer.play(\"Open\")
 		open = true
 "

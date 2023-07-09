@@ -8,6 +8,7 @@ script/source = "extends Node3D
 
 
 func _on_interactible_activate():
+	SignalBus.emit_signal(\"task_done\", \"Toilette\")
 	$AnimationPlayer.play(\"Open\")
 	pass # Replace with function body.
 "
@@ -49,7 +50,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1lulx"]
-size = Vector3(0.400443, 1.10143, 0.460774)
+size = Vector3(0.400443, 1.10143, 0.154837)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_uv48d"]
 height = 0.675365

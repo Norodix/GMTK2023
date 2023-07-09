@@ -13,7 +13,8 @@ func _ready():
 
 func _on_interactible_activate():
 	$GPUParticles3D.emitting = true
-	await get_tree().create_timer(2).timeout
+	SignalBus.emit_signal(\"task_done\", \"KitchenSink\")
+	await get_tree().create_timer(2).timeout	
 	$GPUParticles3D.emitting = false
 "
 

@@ -1,5 +1,6 @@
-[gd_scene load_steps=67 format=3 uid="uid://bx0fjco45v2ug"]
+[gd_scene load_steps=68 format=3 uid="uid://bx0fjco45v2ug"]
 
+[ext_resource type="Script" path="res://Environment/world.gd" id="1_663u5"]
 [ext_resource type="PackedScene" uid="uid://dafhoe35ivtic" path="res://Characters/cat.tscn" id="1_dmq2q"]
 [ext_resource type="PackedScene" uid="uid://d0e3lcx5x86i1" path="res://Characters/Player.tscn" id="2_vks8u"]
 [ext_resource type="Material" uid="uid://v362gros2vxi" path="res://Environment/Materials/Wall.material" id="3_van6o"]
@@ -388,6 +389,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gh5ar")
 
 [node name="House" type="Node3D"]
+script = ExtResource("1_663u5")
 
 [node name="Player" parent="." instance=ExtResource("2_vks8u")]
 
