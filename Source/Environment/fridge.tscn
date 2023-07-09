@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://boa5yby7hmgkn"]
+[gd_scene load_steps=5 format=3 uid="uid://boa5yby7hmgkn"]
 
-[ext_resource type="PackedScene" path="res://Assets/Fridge.tscn" id="1_w6d26"]
+[ext_resource type="PackedScene" uid="uid://dao8djqovewjb" path="res://Assets/Fridge.tscn" id="1_w6d26"]
 [ext_resource type="PackedScene" uid="uid://8n1y45s56atv" path="res://Environment/Interactible.tscn" id="2_rfuki"]
 
 [sub_resource type="GDScript" id="GDScript_tssws"]
@@ -16,6 +16,9 @@ func _on_node_3d_activate():
 		open = true
 "
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_k0klw"]
+size = Vector3(0.868995, 1.8184, 0.876982)
+
 [node name="Fridge" type="Node3D"]
 script = SubResource("GDScript_tssws")
 
@@ -23,5 +26,11 @@ script = SubResource("GDScript_tssws")
 
 [node name="Interactible" parent="." instance=ExtResource("2_rfuki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.327502, 0.732921)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8951, 0)
+shape = SubResource("BoxShape3D_k0klw")
 
 [connection signal="activate" from="Interactible" to="." method="_on_node_3d_activate"]
