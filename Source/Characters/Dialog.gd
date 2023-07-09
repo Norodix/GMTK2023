@@ -14,25 +14,31 @@ func _process(delta):
 
 
 var dialog_lines : Dictionary = {
-	"TV" : "tv placeholder",
+	"BathroomSink" : "No, you misunderstood me. I'm hungry, not thirsty.",
 	
-	"Lamp" : "lamp placeholder",
+	"TV" : "I don't want to watch TV.
+	Although that is a pretty good programme.",
 	
-	"Bath" : "bath placeholder",
+	"KitchenSink" : "Yes! YES! NOOOO!
+	What did I just tell you about not being thirsty!",
 	
-	"Toilette" : "toilette placeholder",
+	"Lamp" : "It's broad daylight.
+	That is not very environment friendly.",
 	
-	"BathroomSink" : "bathroom sink placeholder",
+	"Bath" : "A bath? Are you suggesting something?
+	You know what? No. You smell!",
 	
-	"Bed" : "bed placeholder",
+	"Bed" : "Did you really just have to mess that up?
+	You are getting on my nerves. Just feed me already!",
+	
+	"Toilette" : "One more like this and I'm gonna flush you!",
 	
 	"Start" : "I'm a bit hungry. I know! I will ask my cat to feed me.
 	He always just meows at me when he is hungry.
 	There is no way it wont work",
 	
-	"KitchenSink" : "This is the kitchen sink...\nYou do know I'm hungry, right?",
-	
 	"Fridge" : "Finally!!\n ... \nNow that I think of it I'm not hungry anyway.
+	
 	The end.
 	Thanks for playing!",
 }
