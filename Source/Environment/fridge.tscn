@@ -22,6 +22,6 @@ script = SubResource("GDScript_tssws")
 [node name="Fridge" parent="." instance=ExtResource("1_w6d26")]
 
 [node name="Interactible" parent="." instance=ExtResource("2_rfuki")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.327502, 0.385339)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.327502, 0.732921)
 
 [connection signal="activate" from="Interactible" to="." method="_on_node_3d_activate"]

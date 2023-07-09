@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bx0fjco45v2ug"]
+[gd_scene load_steps=60 format=3 uid="uid://bx0fjco45v2ug"]
 
 [ext_resource type="PackedScene" uid="uid://dafhoe35ivtic" path="res://Characters/cat.tscn" id="1_dmq2q"]
 [ext_resource type="PackedScene" uid="uid://d0e3lcx5x86i1" path="res://Characters/Player.tscn" id="2_vks8u"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://caywy1ga8p54" path="res://Environment/couch.tscn" id="8_fixe1"]
 [ext_resource type="Shader" path="res://Environment/Materials/Tiles.gdshader" id="8_tt8ex"]
 [ext_resource type="PackedScene" uid="uid://btue5dwsvjs6r" path="res://Assets/Ceiling.gltf" id="9_cdidj"]
+[ext_resource type="PackedScene" uid="uid://dgdmp7jc3baeb" path="res://Environment/toilette.tscn" id="10_3jgss"]
 [ext_resource type="Texture2D" uid="uid://clwwn52yjpl8h" path="res://Assets/CatDoor.png" id="10_gmrw1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1qb3y"]
@@ -385,7 +386,7 @@ shadow_mesh = SubResource("ArrayMesh_gh5ar")
 
 [node name="Cat" parent="." node_paths=PackedStringArray("tasks") instance=ExtResource("1_dmq2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6882, 3.87224)
-tasks = [NodePath("../NavigationRegion3D/LivingRoom/TV_plus_stand"), NodePath("../NavigationRegion3D/Kitchen/Fridge")]
+tasks = [NodePath("../NavigationRegion3D/Bathroom/Toilette"), NodePath("../NavigationRegion3D/LivingRoom/TV_plus_stand"), NodePath("../NavigationRegion3D/Kitchen/Fridge")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_td8i4")
@@ -556,6 +557,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.1666
 
 [node name="TV_plus_stand" parent="NavigationRegion3D/LivingRoom" instance=ExtResource("6_a3qkr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70426, 0, 3.51098)
+
+[node name="Bathroom" type="Node3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.156527, 0, -2.00876)
+
+[node name="Toilette" parent="NavigationRegion3D/Bathroom" instance=ExtResource("10_3jgss")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.08231, 0, -1.31546)
 
 [node name="HouseElements" type="Node3D" parent="."]
 

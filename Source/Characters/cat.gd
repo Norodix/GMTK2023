@@ -84,7 +84,7 @@ func _physics_process(delta):
 	var look_velocity = velocity
 	look_velocity.y = 0
 	if look_velocity.length() > 0.05:
-		avatar.look_at(self.global_position - look_velocity, Vector3.UP)
+		avatar.look_at(self.global_position - look_velocity.normalized(), Vector3.UP)
 	
 	if velocity.length() > 0.05:
 		var current = anim_state_machine.get_current_node()
@@ -97,4 +97,8 @@ func activate_task(index):
 		print("invalid task index")
 		return
 	seek_work = true
-	set_movement_target(tasks[index].global_position)
+	var target_pos = tasks[index].global_position
+	var interactible = tasks[index].find_child("Interactible")
+	if interactible != null:
+		target_pos = interactible.global_position
+	set_movement_target(target_pos)
