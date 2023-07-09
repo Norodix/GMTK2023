@@ -14,7 +14,7 @@ height = 0.5
 
 [node name="Cat" type="CharacterBody3D"]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 5
 script = ExtResource("1_gqcmh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -81,9 +81,12 @@ func _physics_process(delta):
 	velocity = lerp(velocity, new_velocity, 0.1)
 	velocity.y -= 10 * delta
 	move_and_slide()
-	avatar.look_at(self.global_position - velocity, Vector3.UP)
+	var look_velocity = velocity
+	look_velocity.y = 0
+	if look_velocity.length() > 0.05:
+		avatar.look_at(self.global_position - look_velocity, Vector3.UP)
 	
-	if velocity.length() > 0.1:
+	if velocity.length() > 0.05:
 		var current = anim_state_machine.get_current_node()
 		if current != "Use":
 			anim_state_machine.travel("Movement")
