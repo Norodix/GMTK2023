@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0e3lcx5x86i1"]
+[gd_scene load_steps=7 format=3 uid="uid://d0e3lcx5x86i1"]
 
 [ext_resource type="Script" path="res://Characters/Player.gd" id="1_xmrw6"]
 [ext_resource type="PackedScene" uid="uid://bpq4hdigsygpl" path="res://Characters/Dialog.tscn" id="2_agqow"]
+[ext_resource type="AudioStream" uid="uid://dh10tgjs4p8wm" path="res://Assets/Sound/SFX/step0.wav" id="3_ppkm5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b0wil"]
 radius = 0.25
@@ -9,6 +10,11 @@ height = 1.8
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_34wo7"]
 radius = 2.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5tyds"]
+streams_count = 1
+stream_0/stream = ExtResource("3_ppkm5")
+stream_0/weight = 1.0
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -40,3 +46,8 @@ one_shot = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Dialog" parent="CanvasLayer" instance=ExtResource("2_agqow")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_5tyds")
+volume_db = -30.0
+pitch_scale = 1.28

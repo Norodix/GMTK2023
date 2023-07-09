@@ -9,8 +9,10 @@ extends CharacterBody3D
 const camera_min_vertical_rotation = -80
 const camera_max_vertical_rotation =  80
 const mouse_local_sensitivity = 0.1
+const footstep_size = 0.7
 
 var movement_input : Vector3 = Vector3.ZERO
+var distance_traveled = 0
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -39,6 +41,10 @@ func _physics_process(delta):
 	velocity = lerp(velocity, new_velocity, 0.1)
 	velocity.y -= 10 * delta
 	move_and_slide()
+	distance_traveled += delta * velocity.length()
+	if distance_traveled > footstep_size:
+		$AudioStreamPlayer.play()
+		distance_traveled -= footstep_size
 
 
 func _unhandled_input(event):

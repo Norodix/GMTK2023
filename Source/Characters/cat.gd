@@ -10,7 +10,7 @@ var attention_counter = 0
 var seek_work = false
 var working = false
 var current_target_time = 0
-const target_timeout = 10
+const target_timeout = 15
 
 @export var tasks : Array[Node3D]
 var task_counter = 0
