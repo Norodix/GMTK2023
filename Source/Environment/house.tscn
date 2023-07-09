@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://bx0fjco45v2ug"]
+[gd_scene load_steps=70 format=3 uid="uid://bx0fjco45v2ug"]
 
 [ext_resource type="Script" path="res://Environment/world.gd" id="1_663u5"]
 [ext_resource type="PackedScene" uid="uid://dafhoe35ivtic" path="res://Characters/cat.tscn" id="1_dmq2q"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://crn2t2qm83t84" path="res://Environment/wardrobe.tscn" id="14_1pea6"]
 [ext_resource type="PackedScene" uid="uid://cgymx2af5eedi" path="res://Environment/bedside_table.tscn" id="15_inbm5"]
 [ext_resource type="PackedScene" uid="uid://bjbr1ei3fkiac" path="res://Environment/lamp.tscn" id="19_x1hui"]
+[ext_resource type="PackedScene" uid="uid://cgqtwlayp0nlf" path="res://UI/pause_menu.tscn" id="24_n83tt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1qb3y"]
 
@@ -656,3 +657,7 @@ transform = Transform3D(-3.31219e-08, 0, -0.75774, 0, 0.75774, 0, 0.75774, 0, -3
 material_override = SubResource("StandardMaterial3D_0ss43")
 mesh = SubResource("ArrayMesh_y3uig")
 skeleton = NodePath("")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("24_n83tt")]
