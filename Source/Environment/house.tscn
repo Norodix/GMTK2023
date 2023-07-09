@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bx0fjco45v2ug"]
+[gd_scene load_steps=51 format=3 uid="uid://bx0fjco45v2ug"]
 
 [ext_resource type="PackedScene" uid="uid://dafhoe35ivtic" path="res://Characters/cat.tscn" id="1_dmq2q"]
 [ext_resource type="PackedScene" uid="uid://d0e3lcx5x86i1" path="res://Characters/Player.tscn" id="2_vks8u"]
@@ -320,19 +320,13 @@ data = PackedVector3Array(3.2452, 0, 0.1207, 3.5, 1, 0.1207, 3.5, 0, 0.1207, 3.2
 [sub_resource type="PlaneMesh" id="PlaneMesh_b613c"]
 size = Vector2(10.65, 9.24)
 
-[sub_resource type="Gradient" id="Gradient_s8wci"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.130769)
-colors = PackedColorArray(0.111197, 0.111197, 0.111197, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_7vo1s"]
-gradient = SubResource("Gradient_s8wci")
-repeat = 1
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n772v"]
-albedo_color = Color(0.788235, 0.588235, 0.435294, 1)
-albedo_texture = SubResource("GradientTexture2D_7vo1s")
-uv1_scale = Vector3(50, 1, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cvtnf"]
+render_priority = 0
+shader = ExtResource("8_tt8ex")
+shader_parameter/UV_scale = Vector2(50, 4)
+shader_parameter/cutoff = Vector2(0.1, 0.008)
+shader_parameter/color = Color(0.79, 0.58855, 0.4345, 1)
+shader_parameter/offset = Vector2(0, 0.4)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_f662i"]
 size = Vector2(2.5, 4)
@@ -340,9 +334,10 @@ size = Vector2(2.5, 4)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l46gr"]
 render_priority = 0
 shader = ExtResource("8_tt8ex")
-shader_parameter/thickness = 0.1
 shader_parameter/UV_scale = Vector2(10, 16)
+shader_parameter/cutoff = Vector2(0.1, 0.1)
 shader_parameter/color = Color(0.788235, 1, 1, 1)
+shader_parameter/offset = Vector2(0, 0)
 
 [node name="House" type="Node3D"]
 
@@ -469,7 +464,7 @@ shape = SubResource("WorldBoundaryShape3D_e13od")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.224092, 0, 0.598193)
 mesh = SubResource("PlaneMesh_b613c")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_n772v")
+surface_material_override/0 = SubResource("ShaderMaterial_cvtnf")
 
 [node name="TV_plus_stand" parent="NavigationRegion3D" instance=ExtResource("6_a3qkr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70426, 0, 3.51098)
@@ -509,7 +504,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.3695
 [node name="Door2" parent="HouseElements" instance=ExtResource("4_i0gjt")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -1.05009, 0, 2.07834)
 
-[node name="Floor2" type="MeshInstance3D" parent="."]
+[node name="Floor_tiled" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.179, 0.01, -1.94)
 mesh = SubResource("PlaneMesh_f662i")
 skeleton = NodePath("../NavigationRegion3D")
