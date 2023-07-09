@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://crdfropekdwnw"]
+
+[ext_resource type="AudioStream" uid="uid://dlemrcbl1spas" path="res://Assets/Sound/673325__seth_makes_sounds__relaxing-background-music.wav" id="1_cvfe2"]
+
+[node name="BackgroundMusic" type="Node"]
+process_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_cvfe2")
+autoplay = true
+bus = &"Music"

@@ -10,17 +10,20 @@ config_version=5
 
 [application]
 
-config/name="GMTK2023"
+config/name="Shout at the Cat"
+config/description="In this game you shout at your cat to make it feed you"
 config/tags=PackedStringArray("bestgameeune")
 run/main_scene="res://Environment/house.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=500
 
 [autoload]
 
 GGS="*res://addons/ggs/classes/ggs_globals.gd"
 Globals="*res://globals.gd"
 SignalBus="*res://signal_bus.gd"
+BackgroundMusic="*res://Assets/Sound/BackgroundMusic.tscn"
 
 [editor_plugins]
 
