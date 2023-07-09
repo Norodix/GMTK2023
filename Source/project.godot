@@ -64,6 +64,7 @@ Shout={
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Cat"
 3d_physics/layer_4="Interactible"
+3d_physics/layer_5="Wall"
 
 [navigation]
 
