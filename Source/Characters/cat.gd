@@ -6,6 +6,7 @@ var movement_target_position: Vector3 = Vector3(-3.0,0.0,2.0)
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 
 var attention_counter = 0
+const attention_needed = 3
 @onready var shout_detection_marker = preload("res://Characters/shout_detection_marker.tscn")
 var seek_work = false
 var working = false
@@ -40,9 +41,11 @@ func grab_attention():
 	self.add_child(marker)
 	marker.top_level = true
 	
-	if attention_counter >= 1:
+	if attention_counter >= attention_needed:
 		attention_counter = 0
 		activate_task(task_counter)
+	else:
+		marker.scale_object_local(Vector3(0.2, 0.2, 0.2))
 
 
 func set_random_target():
