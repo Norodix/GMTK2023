@@ -50,7 +50,6 @@ mesh = SubResource("SphereMesh_pikhj")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.1
-debug_enabled = true
 
 [node name="Interactor" type="Area3D" parent="."]
 collision_layer = 0

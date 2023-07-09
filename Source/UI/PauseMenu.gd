@@ -3,7 +3,7 @@ extends Control
 var paused : bool = false
 
 func _ready():
-	paused = false
+	paused = true
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):

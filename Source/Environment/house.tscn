@@ -394,10 +394,11 @@ shadow_mesh = SubResource("ArrayMesh_gh5ar")
 script = ExtResource("1_663u5")
 
 [node name="Player" parent="." instance=ExtResource("2_vks8u")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.07248, 0.9, 4.18237)
 
 [node name="Cat" parent="." node_paths=PackedStringArray("tasks") instance=ExtResource("1_dmq2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6882, 3.87224)
-tasks = [NodePath("../NavigationRegion3D/Bedroom/Lamp"), NodePath("../NavigationRegion3D/Kitchen/KitchenSink"), NodePath("../NavigationRegion3D/Bedroom/Bed"), NodePath("../NavigationRegion3D/Bathroom/Bath"), NodePath("../NavigationRegion3D/Bathroom/Toilette"), NodePath("../NavigationRegion3D/Bathroom/BathroomSink"), NodePath("../NavigationRegion3D/LivingRoom/TV_plus_stand"), NodePath("../NavigationRegion3D/Kitchen/Fridge")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.65684, 0.6882, 4.08012)
+tasks = [NodePath("../NavigationRegion3D/Bathroom/BathroomSink"), NodePath("../NavigationRegion3D/LivingRoom/TV_plus_stand"), NodePath("../NavigationRegion3D/Kitchen/KitchenSink"), NodePath("../NavigationRegion3D/Bedroom/Lamp"), NodePath("../NavigationRegion3D/Bathroom/Bath"), NodePath("../NavigationRegion3D/Bedroom/Bed"), NodePath("../NavigationRegion3D/Bathroom/Toilette"), NodePath("../NavigationRegion3D/Kitchen/Fridge")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_td8i4")
