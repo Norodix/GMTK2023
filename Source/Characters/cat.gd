@@ -83,7 +83,11 @@ func _physics_process(delta):
 	if current_target_time > target_timeout:
 		print("navigation timeout")
 		current_target_time = 0
+		working = false
+		seek_work = false
 		set_random_target()
+		
+	# perform movement
 	var current_agent_position: Vector3 = global_position
 	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
 

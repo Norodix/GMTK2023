@@ -11,11 +11,12 @@ func _process(delta):
 	label_timeout -= delta
 	label.visible = label_timeout > 0
 	label.label_settings.font_size = Globals.font_size
-	print(label_timeout)
 
 
 var dialog_lines : Dictionary = {
 	"TV" : "tv placeholder",
+	
+	"Lamp" : "lamp placeholder",
 	
 	"Bath" : "bath placeholder",
 	
@@ -31,7 +32,9 @@ var dialog_lines : Dictionary = {
 	
 	"KitchenSink" : "This is the kitchen sink...\nYou do know I'm hungry, right?",
 	
-	"Fridge" : "Finally!!\n ... \nNow that I think of it I'm not hungry anyway.",
+	"Fridge" : "Finally!!\n ... \nNow that I think of it I'm not hungry anyway.
+	The end.
+	Thanks for playing!",
 }
 
 
@@ -41,5 +44,5 @@ func display_text(key : String):
 		return
 	label.text = dialog_lines[key]
 	var wordcount = label.text.split(" ", false).size()
-	label_timeout = wordcount / 1.5
+	label_timeout = wordcount / 2 + 2
 	pass
