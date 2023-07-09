@@ -1,8 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0e3lcx5x86i1"]
+[gd_scene load_steps=18 format=3 uid="uid://d0e3lcx5x86i1"]
 
 [ext_resource type="Script" path="res://Characters/Player.gd" id="1_xmrw6"]
 [ext_resource type="PackedScene" uid="uid://bpq4hdigsygpl" path="res://Characters/Dialog.tscn" id="2_agqow"]
 [ext_resource type="AudioStream" uid="uid://dh10tgjs4p8wm" path="res://Assets/Sound/SFX/step0.wav" id="3_ppkm5"]
+[ext_resource type="AudioStream" uid="uid://6j33ok3ekpa8" path="res://Assets/Sound/SFX/Shout/Shout1.wav" id="4_ypx13"]
+[ext_resource type="AudioStream" uid="uid://c8ksesgfri0bq" path="res://Assets/Sound/SFX/Shout/Shout2.wav" id="5_oi878"]
+[ext_resource type="AudioStream" uid="uid://d22cn0bww8nfp" path="res://Assets/Sound/SFX/Shout/Shout3.wav" id="6_il05x"]
+[ext_resource type="AudioStream" uid="uid://67m5y5i4e3jw" path="res://Assets/Sound/SFX/Shout/Shout4.wav" id="7_w3j2p"]
+[ext_resource type="AudioStream" uid="uid://kr70tymuhoug" path="res://Assets/Sound/SFX/Shout/Shout5.wav" id="8_3vcpt"]
+[ext_resource type="AudioStream" uid="uid://dlc4tdjd6kxsc" path="res://Assets/Sound/SFX/Shout/Shout6.wav" id="9_x8rtx"]
+[ext_resource type="AudioStream" uid="uid://dq6e1u4155stx" path="res://Assets/Sound/SFX/Shout/Shout7.wav" id="10_xbvy5"]
+[ext_resource type="AudioStream" uid="uid://6mcxwoquo27y" path="res://Assets/Sound/SFX/Shout/Shout8.wav" id="11_mcd4d"]
+[ext_resource type="AudioStream" uid="uid://3dsdqn61fjmj" path="res://Assets/Sound/SFX/Shout/Shout9.wav" id="12_gko2m"]
+[ext_resource type="AudioStream" uid="uid://ddj11r8wb0hch" path="res://Assets/Sound/SFX/Shout/Shout10.wav" id="13_hscij"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b0wil"]
 radius = 0.25
@@ -15,6 +25,29 @@ radius = 2.0
 streams_count = 1
 stream_0/stream = ExtResource("3_ppkm5")
 stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_d77uh"]
+streams_count = 10
+stream_0/stream = ExtResource("4_ypx13")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_oi878")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_il05x")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("7_w3j2p")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("8_3vcpt")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("9_x8rtx")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("10_xbvy5")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("11_mcd4d")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("12_gko2m")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("13_hscij")
+stream_9/weight = 1.0
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -47,7 +80,13 @@ one_shot = true
 
 [node name="Dialog" parent="CanvasLayer" instance=ExtResource("2_agqow")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Footstep" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_5tyds")
 volume_db = -30.0
 pitch_scale = 1.28
+bus = &"SFX"
+
+[node name="Shout" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_d77uh")
+volume_db = -20.0
+bus = &"SFX"

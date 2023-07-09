@@ -28,6 +28,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("Shout"):
 		if $ShoutCooldown.is_stopped():
 			$ShoutCooldown.start()
+			$Shout.play()
 			var bodies : Array[Node3D] = $CatDetector.get_overlapping_bodies()
 			if not bodies.is_empty():
 				if bodies[0].has_method("grab_attention"):
@@ -43,7 +44,7 @@ func _physics_process(delta):
 	move_and_slide()
 	distance_traveled += delta * velocity.length()
 	if distance_traveled > footstep_size:
-		$AudioStreamPlayer.play()
+		$Footstep.play()
 		distance_traveled -= footstep_size
 
 
